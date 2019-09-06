@@ -1,29 +1,72 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <v-app-bar app>
+      <v-toolbar-title class="headline text-uppercase">
+        <span>SteelMachine</span>
+        <span class="font-weight-light">  FANTASY DRAFT</span>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn
+        text
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        target="_blank"
+      >
+        <span class="mr-2">Latest Release</span>
+      </v-btn>
+    </v-app-bar>
+
+    <v-content>
+       <v-container class="grey lighten-5">
+          <v-row no-gutters>
+            <v-col
+              cols="12"
+              sm="6"
+              md="8"
+            >
+              <v-card
+                class="pa-2"
+                outlined
+                tile
+              >
+                <AvailablePlayersTable />
+              </v-card>
+            </v-col>
+            <v-col
+              cols="6"
+              md="4"
+            >
+              <v-card
+                class="pa-2"
+                outlined
+                tile
+              >
+                <MyTeamTable />
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+    </v-content>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+<script>
+import HelloWorld from './components/HelloWorld';
+import TeamTable  from './components/TeamTable';
+import AddPlayer from './components/AddPlayer';
+import AvailablePlayersTable from "./components/AvailablePlayersTable";
+import MyTeamTable from './components/MyTeamTable';
+
+export default {
+  name: 'App',
+  components: {
+    HelloWorld,
+    TeamTable,
+    AddPlayer,
+    AvailablePlayersTable,
+    MyTeamTable
+  },
+  data: () => ({
+    //
+  }),
+};
+</script>
